@@ -20,7 +20,9 @@
     const elapsed = previousTime === null ? 16 : Math.min(48, Math.max(1, time - previousTime));
     const distance = target - position;
     const moving = Math.abs(distance) > .5;
-    position = moving ? position + distance * (1 - Math.exp(-elapsed / 92)) : target;
+    const step = moving ? distance * (1 - Math.exp(-elapsed / 110)) : distance;
+    position = moving ? position + step : target;
+    const pace = moving ? Math.min(1, Math.abs(step) / elapsed) : 0;
 
     const compact = width <= 840;
     const size = compact ? 30 : 44;
@@ -29,14 +31,21 @@
     const ceiling = Math.min(compact ? 86 : 104, height * .23);
     const floor = Math.min(108, height * .26);
     const travel = Math.max(0, height - ceiling - floor - size);
-    const phase = position / Math.max(440, height) * 2.25;
-    const xLeft = edge + drift * (.5 + .5 * Math.sin(phase - .6));
-    const xRight = width - size - edge - drift * (.5 + .5 * Math.cos(phase + .6));
-    const clipperY = ceiling + travel * (.5 + .43 * Math.sin(phase - .7));
-    const scissorsY = ceiling + travel * (.5 + .43 * Math.sin(phase + 1));
+    const phase = position / Math.max(550, height) * 1.8;
+    const xLeft = edge + drift * (.5 + .5 * Math.sin(phase - .35));
+    const xRight = width - size - edge - drift * (.5 + .5 * Math.cos(phase + .85));
+    const clipperY = ceiling + travel * (.52 + .37 * Math.sin(phase - .7));
+    const scissorsY = ceiling + travel * (.49 + .39 * Math.sin(phase + 1.45));
+    const lean = Math.sign(step) * pace * 5;
+    const clipperAngle = Math.sin(phase) * 8 + lean;
+    const scissorsAngle = Math.cos(phase + .5) * 10 - lean;
+    const snip = 13 - pace * (5 + 5 * Math.cos(position / 34));
+    const bladeShift = pace * .9 * Math.sin(position / 12);
 
-    clipper.style.transform = `translate3d(${xLeft}px, ${clipperY}px, 0) rotate(${Math.sin(phase) * 9}deg)`;
-    scissors.style.transform = `translate3d(${xRight}px, ${scissorsY}px, 0) rotate(${Math.cos(phase) * 11}deg)`;
+    clipper.style.transform = `translate3d(${xLeft}px, ${clipperY}px, 0) rotate(${clipperAngle}deg)`;
+    clipper.style.setProperty('--clipper-blade-shift', `${bladeShift}px`);
+    scissors.style.transform = `translate3d(${xRight}px, ${scissorsY}px, 0) rotate(${scissorsAngle}deg)`;
+    scissors.style.setProperty('--shear-angle', `${snip}deg`);
     decoration.classList.toggle('is-scrolled', target > 22);
 
     previousTime = moving ? time : null;

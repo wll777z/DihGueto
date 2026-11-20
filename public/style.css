@@ -58,10 +58,12 @@ button, input, select { font: inherit; }
 .intro-screen:not([hidden]) ~ .scroll-tools { visibility: hidden; }
 .scroll-tool { position: absolute; top: 0; left: 0; display: grid; place-items: center; width: 44px; height: 44px; color: #ffc096; filter: drop-shadow(0 1px 2px #100e0dc4); }
 .scroll-tools .scissors-shape { transform: rotate(-28deg) scale(.43); }
+.scroll-tools .scissors-shape > span { transform: rotate(calc(-1 * var(--shear-angle, 13deg))); }
+.scroll-tools .scissors-shape > span + span { transform: rotate(var(--shear-angle, 13deg)); }
 .scroll-tools .scissors-shape > span::before { background: transparent; }
 .scroll-tools .scissors-shape::after { background: var(--brand-burnt); }
 .clipper-shape { position: relative; width: 17px; height: 25px; margin-top: 5px; transform: rotate(-22deg); background: #231610; border: 1.5px solid var(--brand-amber); border-radius: 4px 4px 6px 6px; }
-.clipper-shape::before { content: ""; position: absolute; top: -6px; left: -2px; width: 18px; height: 6px; background: linear-gradient(to top, var(--paper) 2px, transparent 2px), repeating-linear-gradient(90deg, var(--paper) 0 1px, #463a35 1px 2.4px); border-radius: 2px 2px 1px 1px; }
+.clipper-shape::before { content: ""; position: absolute; top: -6px; left: -2px; width: 18px; height: 6px; background: linear-gradient(to top, var(--paper) 2px, transparent 2px), repeating-linear-gradient(90deg, var(--paper) 0 1px, #463a35 1px 2.4px); border-radius: 2px 2px 1px 1px; transform: translateY(var(--clipper-blade-shift, 0px)); }
 .clipper-shape::after { content: ""; position: absolute; top: 8px; left: 5px; width: 4px; height: 7px; border: 1px solid var(--brand-amber); border-radius: 4px; }
 .clipper-shape > span { position: absolute; top: 2px; left: -5px; width: 4px; height: 8px; border-left: 2px solid var(--brand-amber); border-radius: 2px; transform: rotate(18deg); }
 @media (prefers-reduced-motion: reduce) { .intro-screen, .scroll-tools { display: none; } }
@@ -97,8 +99,10 @@ p { margin: 0 0 1rem; }
 .opening .button:not(.outline) { background: linear-gradient(112deg, var(--brand-amber), var(--brand-orange) 82%); }
 .opening .button.outline { color: var(--paper); border-color: #8d7462; }
 .opening .button.outline:hover { background: var(--coal); border-color: var(--brand-amber); }
-.cover-art { position: absolute; inset: 0 0 0 auto; display: grid; place-items: center; width: min(55%, 58rem); padding-inline: clamp(20px, 4vw, 72px); pointer-events: none; }
-.cover-logo { width: min(100%, 44rem); height: auto; filter: drop-shadow(0 12px 22px #100e0da8); }
+.cover-art { position: absolute; inset: 0 0 0 auto; width: min(57%, 62rem); pointer-events: none; }
+.cover-photo { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; mask-image: linear-gradient(90deg, transparent, #000 31%); }
+.cover-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, #100e0de8, transparent 53%); mask-image: linear-gradient(90deg, transparent, #000 35%); }
+.cover-logo { position: absolute; z-index: 1; right: clamp(22px, 5vw, 82px); bottom: clamp(22px, 5vw, 72px); width: min(64%, 29rem); height: auto; filter: drop-shadow(0 9px 18px #100e0dbd); }
 .header :focus-visible, .opening :focus-visible, .about :focus-visible, .contact :focus-visible, footer :focus-visible { outline-color: var(--brand-amber); }
 .showcase { padding-block: clamp(18px, 4vw, 60px); overflow: clip; background: linear-gradient(125deg, var(--brand-amber), var(--brand-orange) 54%, var(--brand-burnt)); }
 .showcase-panel { padding: clamp(16px, 4vw, 58px); background: var(--paper); border: 1px solid #ffbf91; }
@@ -226,8 +230,10 @@ body:has(#sobre:target) .quick-nav a[href="#sobre"] { color: var(--brand-amber);
   .nav-shell nav > a { display: flex; align-items: center; min-height: 44px; font-size: .9rem; }
   .button.nav-button { display: none; }
   .opening { background: radial-gradient(ellipse at 62% 18%, #a9471a99, transparent 51%), linear-gradient(154deg, #28170e, var(--ink) 56%, #2c170f); }
-  .cover-art { position: relative; inset: auto; width: 100%; min-height: clamp(210px, 54vw, 338px); padding: 32px var(--page-gutter); }
-  .cover-logo { width: min(100%, 34rem); }
+  .cover-art { position: relative; inset: auto; width: 100%; height: clamp(228px, 65vw, 380px); }
+  .cover-photo { mask-image: linear-gradient(180deg, #000 61%, transparent); }
+  .cover-art::after { display: none; }
+  .cover-logo { right: auto; bottom: 10px; left: var(--page-gutter); width: min(64%, 24rem); }
   .opening-content { display: block; min-height: auto; padding-block: 18px var(--section-space); }
   .opening-copy { text-shadow: none; }
   .opening h1 { font-size: clamp(3.5rem, 11.8vw, 6.75rem); line-height: .94; }
