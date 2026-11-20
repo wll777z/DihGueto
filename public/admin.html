@@ -1,0 +1,36 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda administrativa | DihGuetto</title><link rel="stylesheet" href="/palette.css"><link rel="stylesheet" href="/admin.css"><script type="module" src="/admin.js"></script><script type="module" src="/gallery.js"></script></head>
+<body><header class="top wrap"><a href="/" aria-label="DihGuetto Barbearia, início"><img class="brand" src="/logo.webp" alt="DihGuetto" width="184" height="61"></a><a href="/">Voltar ao site</a></header>
+<main class="wrap admin"><h1>Agenda administrativa</h1>
+<section aria-labelledby="relatorio"><h2 id="relatorio">Resultados e reservas</h2>
+<form id="period" class="fields"><label>De<input name="from" type="date" required></label><label>Até<input name="to" type="date" required></label><button class="button" type="submit">Consultar</button></form>
+<p id="mail-config" role="status"></p><p id="report-status" role="status"></p>
+<dl class="metrics"><div><dt>Faturamento realizado</dt><dd id="revenue">—</dd></div><div><dt>Valor previsto</dt><dd id="projected">—</dd></div><div><dt>Atendimentos concluídos</dt><dd id="completed">—</dd></div><div><dt>Reservas futuras</dt><dd id="upcoming">—</dd></div><div><dt>Clientes únicos no período</dt><dd id="clients">—</dd></div></dl>
+<div id="entries"></div>
+</section>
+<section aria-labelledby="config-title"><h2 id="config-title">Configurar agenda</h2><p>Os horários usam o fuso de São Paulo e uma cadeira. Informe seus preços e dias de atendimento antes de abrir as reservas.</p>
+<form id="settings" hidden>
+<label class="check"><input type="checkbox" name="enabled"> Aceitar novas reservas</label>
+<fieldset><legend>Dias de atendimento</legend><div class="days">
+<label class="check"><input type="checkbox" name="day" value="0"> Dom</label><label class="check"><input type="checkbox" name="day" value="1"> Seg</label><label class="check"><input type="checkbox" name="day" value="2"> Ter</label><label class="check"><input type="checkbox" name="day" value="3"> Qua</label><label class="check"><input type="checkbox" name="day" value="4"> Qui</label><label class="check"><input type="checkbox" name="day" value="5"> Sex</label><label class="check"><input type="checkbox" name="day" value="6"> Sáb</label>
+</div></fieldset>
+<div class="fields"><label>Abertura<input name="open" type="time" step="900" required></label><label>Fechamento<input name="close" type="time" step="900" required></label></div>
+<fieldset><legend>Corte</legend><div class="fields"><label>Preço (R$)<input name="corte-price" type="number" min="0" max="9999.99" step=".01" required></label><label>Duração (min)<input name="corte-duration" type="number" min="15" max="180" step="15" required></label></div></fieldset>
+<fieldset><legend>Barba</legend><div class="fields"><label>Preço (R$)<input name="barba-price" type="number" min="0" max="9999.99" step=".01" required></label><label>Duração (min)<input name="barba-duration" type="number" min="15" max="180" step="15" required></label></div></fieldset>
+<fieldset><legend>Corte + barba</legend><div class="fields"><label>Preço (R$)<input name="combo-price" type="number" min="0" max="9999.99" step=".01" required></label><label>Duração (min)<input name="combo-duration" type="number" min="15" max="180" step="15" required></label></div></fieldset>
+<fieldset><legend>Luzes</legend><p>Preço zero deixa esse serviço indisponível na agenda.</p><div class="fields"><label>Preço (R$)<input name="luzes-price" type="number" min="0" max="9999.99" step=".01" required></label><label>Duração (min)<input name="luzes-duration" type="number" min="15" max="180" step="15" required></label></div></fieldset>
+<button class="button" type="submit">Salvar configuração</button>
+</form><p id="settings-status" role="status"></p>
+</section>
+<section aria-labelledby="gallery-title">
+  <h2 id="gallery-title">Fotos do Instagram</h2>
+  <p>Envie fotos para complementar a galeria e escolha a categoria de cada uma.</p>
+  <form id="gallery-upload" enctype="multipart/form-data">
+    <div class="fields"><label>Categoria<select name="category"><option value="cortes">Cortes</option><option value="luzes">Luzes</option></select></label><label>Foto<input name="photo" type="file" accept="image/jpeg,image/png,image/webp" required></label></div>
+    <label>Legenda<input name="caption" maxlength="100" placeholder="Ex.: Degradê baixo com acabamento na navalha"></label>
+    <button class="button" type="submit">Adicionar à galeria</button>
+  </form>
+  <p id="gallery-admin-status" role="status"></p>
+  <div id="gallery-admin"></div>
+</section></main>
+</body></html>
