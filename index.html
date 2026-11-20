@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="DihGuetto Barbearia em São Paulo. Conheça os cortes, barba e luzes, confira os trabalhos e consulte a agenda.">
+<title>DihGuetto Barbearia | Prévia</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./palette.css">
+<link rel="stylesheet" href="./style.css">
+<script src="./intro.js" defer></script>
+<script src="./preview.js" defer></script>
+<script src="./motion.js" defer></script>
+<script src="./scroll-tools.js" defer></script>
+</head>
+<body>
+<div class="intro-screen" id="intro-screen" aria-hidden="true" hidden>
+  <div class="intro-content">
+    <div class="intro-mark">
+      <span class="intro-scissors intro-scissors-orange scissors-shape"><span></span><span></span></span>
+      <span class="intro-scissors intro-scissors-white scissors-shape"><span></span><span></span></span>
+    </div>
+    <p>Carregando</p>
+  </div>
+</div>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<header class="header" id="inicio">
+  <div class="wrap nav-shell">
+    <a class="brand" href="#inicio" aria-label="DihGuetto Barbearia, início"><img src="./logo.webp" alt="" width="150" height="50"></a>
+    <nav aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#trabalhos">Galeria</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="button nav-button" href="#agenda">Agendar</a>
+  </div>
+</header>
+<main id="conteudo">
+  <section class="opening" aria-labelledby="hero-title">
+    <div class="cover-art" data-motion="fade">
+      <img class="cover-logo" src="./logo.webp" alt="DihGuetto Barbearia" width="800" height="266" fetchpriority="high">
+    </div>
+    <div class="wrap opening-content">
+      <div class="opening-copy">
+        <p class="opening-label">Barbearia em São Paulo</p>
+        <h1 id="hero-title">Seu corte.<br><span>Seu estilo.</span></h1>
+        <p class="opening-description">Corte, barba e luzes com atenção ao acabamento.</p>
+        <div class="opening-actions">
+          <a class="button" href="#agenda">Agendar horário</a>
+          <a class="button outline" href="#trabalhos">Ver os cortes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="showcase" id="trabalhos" aria-labelledby="galeria-titulo">
+    <div class="wrap showcase-panel">
+      <div class="section-heading" data-motion="fade"><h2 id="galeria-titulo">Da cadeira</h2><a href="https://www.instagram.com/ph_nasciimentto/" target="_blank" rel="noopener noreferrer">Mais cortes no Instagram</a></div>
+      <article class="category" id="cortes" aria-labelledby="cortes-titulo">
+        <figure class="category-cover" data-motion="rotate">
+          <img class="cut-cover" src="./corte-mid-taper.webp" alt="Corte mid taper fade com cachos no topo e degradê na lateral" width="800" height="1052" loading="lazy">
+          <figcaption><a href="https://www.instagram.com/p/Df7mEzhm0NH/" target="_blank" rel="noopener noreferrer">Mid taper fade</a></figcaption>
+        </figure>
+        <div class="category-body" data-motion="rise">
+          <h3 id="cortes-titulo">Cortes</h3>
+          <p>Do degradê ao acabamento na tesoura.</p>
+          <a class="button outline" href="#agenda" data-service="corte">Agendar corte</a>
+          <div class="photo-grid" id="photos-cortes" role="group" aria-label="Galeria de cortes">
+            <figure><a href="https://www.instagram.com/p/DaqWnswES21/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Drop fade no Instagram"><img src="./corte-drop-fade.webp" alt="Drop fade com desenho na lateral" width="460" height="613" loading="lazy"></a><figcaption>Drop fade</figcaption></figure>
+            <figure><a href="https://www.instagram.com/p/DZa0Ymkkd4E/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Freestyle no Instagram"><img src="./corte-freestyle.webp" alt="Corte freestyle com desenho na nuca" width="460" height="607" loading="lazy"></a><figcaption>Freestyle</figcaption></figure>
+          </div>
+          <p class="gallery-status" id="gallery-cortes-status" role="status"></p>
+        </div>
+      </article>
+      <article class="category reverse" id="luzes" aria-labelledby="luzes-titulo">
+        <figure class="category-cover" data-motion="slide" data-direction="right">
+          <img src="./luzes-capa.webp" alt="Detalhe ilustrativo de luzes douradas em cabelo cacheado" width="720" height="960" loading="lazy">
+          <figcaption>Foto ilustrativa</figcaption>
+        </figure>
+        <div class="category-body" data-motion="rise">
+          <h3 id="luzes-titulo">Luzes</h3>
+          <p>Mechas para dar contraste e realçar a textura.</p>
+          <a class="button outline" href="#agenda" data-service="luzes">Consultar horários</a>
+          <div class="photo-grid" id="photos-luzes" aria-label="Galeria de luzes"></div>
+          <p class="gallery-status" id="gallery-luzes-status" role="status"></p>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="about" id="sobre" aria-labelledby="sobre-titulo">
+    <div class="wrap about-grid">
+      <div class="about-copy" data-motion="fade">
+        <p class="opening-label">O profissional</p>
+        <h2 id="sobre-titulo">Paulo Henrique</h2>
+        <p>Fundador da DihGuetto. No Instagram, ele mostra os cortes, os acabamentos e o dia a dia da cadeira.</p>
+        <a class="text-link" href="https://www.instagram.com/ph_nasciimentto/" target="_blank" rel="noopener noreferrer">Acompanhar @ph_nasciimentto</a>
+      </div>
+      <a class="reel" href="https://www.instagram.com/reel/DfsfDOsOC81/" target="_blank" rel="noopener noreferrer" data-motion="rise">
+        <img src="./corte-dihguetto.webp" alt="" width="460" height="818" loading="lazy">
+        <span class="reel-label"><span class="play" aria-hidden="true"></span>Assistir ao corte no Instagram</span>
+      </a>
+    </div>
+  </section>
+<section class="booking" id="agenda" aria-labelledby="agenda-titulo"><div class="wrap booking-grid">
+  <div class="booking-copy" data-motion="fade">
+    <h2 id="agenda-titulo">Seu próximo corte</h2>
+    <p>Escolha o serviço e veja os horários disponíveis para reservar.</p>
+    <img src="./logo.webp" alt="" width="360" height="120" loading="lazy">
+  </div>
+  <div class="booking-form-panel" id="servicos" data-motion="fade">
+    <h3>Agendamento</h3>
+    <p id="preview-disclosure">Demonstração de agendamento com horários de exemplo.</p>
+    <form id="preview-booking" aria-describedby="preview-disclosure" hidden>
+      <label>Serviço<select name="service" id="preview-service" required>
+        <option value="corte">Corte</option>
+        <option value="barba">Barba</option>
+        <option value="combo">Corte + barba</option>
+        <option value="luzes">Luzes</option>
+      </select></label>
+      <div class="fields">
+        <label>Data<input name="date" id="preview-date" type="date" required></label>
+        <label>Horário<select name="time" id="preview-time" required>
+          <option value="">Selecione um horário</option>
+          <option value="10:00">10:00</option>
+          <option value="14:30">14:30</option>
+          <option value="17:00">17:00</option>
+        </select></label>
+      </div>
+      <button type="submit" class="button">Simular reserva</button>
+    </form>
+    <p class="service-summary" id="preview-result" role="status"></p>
+  </div>
+</div></section>
+  <section class="questions" id="duvidas" aria-labelledby="duvidas-titulo">
+    <div class="wrap questions-grid">
+      <h2 id="duvidas-titulo" data-motion="fade">Dúvidas</h2>
+      <div data-motion="rise">
+        <details><summary>Como reservo um horário?</summary><p>Escolha um serviço, uma data e um horário livre. Depois, informe seus dados e confirme. Guarde o código mostrado na tela.</p></details>
+        <details><summary>Como cancelo uma reserva?</summary><p>Abra “Cancelar uma reserva” na seção de agendamento. Informe a data e o código antes do horário marcado para liberar a vaga.</p></details>
+        <details><summary>Posso reservar para fazer luzes?</summary><p>Quando o serviço estiver disponível, selecione Luzes na agenda para ver o preço, a duração e os horários livres.</p></details>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contato" aria-labelledby="contato-titulo">
+    <div class="wrap contact-grid">
+      <div data-motion="fade">
+        <h2 id="contato-titulo">Venha à DihGuetto</h2>
+        <address>Rua Amaro de Pontes, 964<br>São Paulo – SP, 04890-360</address>
+      </div>
+      <div class="contact-actions" data-motion="rise">
+        <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Amaro+de+Pontes+964+S%C3%A3o+Paulo" target="_blank" rel="noopener noreferrer">Ver no mapa</a>
+        <a class="text-link" href="https://booksy.com/pt-br/413314_dihguetto_barbearias_1047773_sao-paulo" target="_blank" rel="noopener noreferrer">Ver avaliações no Booksy</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot" data-motion="fade">
+    <a href="#inicio" aria-label="DihGuetto Barbearia, voltar ao início"><img src="./logo.webp" alt="" width="166" height="55"></a>
+    <div><a href="https://www.instagram.com/ph_nasciimentto/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+  </div>
+</footer>
+<nav class="quick-nav" aria-label="Acesso rápido">
+  <a href="#agenda">Agendamento</a>
+  <a href="#cortes">Cortes</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#sobre">Profissional</a>
+</nav>
+<div class="scroll-tools" id="scroll-tools" aria-hidden="true" hidden>
+  <span class="scroll-tool"><span class="clipper-shape"><span></span></span></span>
+  <span class="scroll-tool"><span class="scissors-shape"><span></span><span></span></span></span>
+</div>
+</body>
+</html>
